@@ -1,7 +1,7 @@
 <template>
     <!-- footer -->
-    <footer class="container mx-auto bg-white pt-16 pb-12 border-t border-gray-100">
-        <div class="grid grid-cols-3">
+    <footer class="container mx-auto px-2 bg-white pt-16 pb-12 border-t border-gray-100">
+        <div class="grid md:grid-cols-3 grid-cols-1">
             <!-- footer text -->
             <div class="col-span-1 space-y-8">
                 <img src="../assets/images/logo-xl.svg" alt="logo" class="w-30">
@@ -26,8 +26,8 @@
             <!-- footer text end -->
 
             <!-- footer links -->
-            <div class="col-span-2 grid grid-cols-2 gap-8">
-                <div class="grid grid-cols-2 gap-8">
+            <div class="col-span-2 grid md:grid-cols-2 grid-cols-1 gap-8">
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
                     <div>
                         <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
                         <div class="mt-4 space-y-4">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
                     <div>
                         <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Company</h3>
                         <div class="mt-4 space-y-4">

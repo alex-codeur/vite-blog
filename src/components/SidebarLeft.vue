@@ -1,5 +1,5 @@
 <template>
-    <div class="w-3/12">
+    <div class="w-3/12 hidden xl:block">
         <div class="bg-white shadow-sm rounded-sm p-4">
             <h3 class="text-xl font-semibold text-gray-700 font-roboto mb-3">Categories</h3>
             <div class="text-gray-700 space-y-2 font-semibold uppercase text-sm">

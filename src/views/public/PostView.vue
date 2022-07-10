@@ -1,5 +1,5 @@
 <template>
-    <div class="w-6/12 mx-6">
+    <div class="xl:w-6/12 lg:w-8/12 w-full mx-6">
         <div class="flex justify-between bg-white px-2 py-2 items-center rounded-sm mb-5">
             <h5 class="text-base uppercase font-semibold font-roboto">Business</h5>
             <router-link to="/" class="text-white bg-blue-500 px-1 py-1 rounded-sm uppercase text-sm hover:bg-transparent hover:text-blue-500 transition border border-blue-500">
@@ -100,7 +100,7 @@
             </router-link>  
         </div>
 
-        <div class="grid grid-cols-3 gap-4 mt-4">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-4 mt-4">
             <div class="bg-white p-3 shadow-sm rounded-sm">
                 <router-link to="/" class="overflow-hidden block">
                     <img src="../../assets/images/js-9.jpg" class="w-full h-30 object-cover rounded transform hover:scale-110 transition duration-500" alt="photo">

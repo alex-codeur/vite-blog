@@ -3,7 +3,7 @@
         <Navbar/>
 
         <main class="py-12 bg-gray-100 min-h-screen">
-            <div class="container mx-auto px-4 flex">
+            <div class="container mx-auto px-4 flex flex-wrap lg:flex-nowrap">
                 <SidebarLeft/>
                 <router-view/>
                 <SidebarRight/>

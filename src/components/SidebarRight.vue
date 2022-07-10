@@ -1,5 +1,5 @@
 <template>
-    <div class="w-3/12">
+    <div class="xl:w-3/12 lg:w-4/12 w-full mt-8 lg:mt-0">
         <div class="bg-white shadow-sm rounded-sm p-4">
             <h3 class="text-xl font-semibold text-gray-700 font-roboto mb-3">Social Plugin</h3>
             <div class="flex gap-2">
