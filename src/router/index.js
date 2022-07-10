@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/public/Home.vue'
 import About from '../views/public/About.vue'
 import Contact from '../views/public/Contact.vue'
+import PostView from '../views/public/PostView.vue'
 
 import NotFound from '../views/public/NotFound.vue'
 
@@ -16,7 +17,8 @@ const routes = [
         children: [
             { path: '/', name: 'home', component: Home },
             { path: '/about', name: 'about', component: About },
-            { path: '/contact', name: 'contact', component: Contact }
+            { path: '/contact', name: 'contact', component: Contact },
+            { path: '/post', name: 'post', component: PostView }
         ]
     },
     {
