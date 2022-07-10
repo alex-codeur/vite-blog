@@ -11,6 +11,8 @@
                 <SidebarRight/>
             </div>
         </main>
+
+        <Footer/>
     </div>
 </template>
 
@@ -18,13 +20,15 @@
     import Navbar from '../../components/Navbar.vue'
     import SidebarLeft from '../../components/SidebarLeft.vue'
     import SidebarRight from '../../components/SidebarRight.vue'
+    import Footer from '../../components/Footer.vue'
 
     export default {
         name: 'PublicLayout',
         components: {
             Navbar,
             SidebarLeft,
-            SidebarRight
+            SidebarRight,
+            Footer
         }
     }
 </script>
