@@ -36,6 +36,113 @@
                 </div>
             </div>
         </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="bg-white p-4 shadow-sm rounded-sm">
+                <router-link to="/" class="overflow-hidden block">
+                    <img src="../../assets/images/js-9.jpg" class="w-full h-50 object-cover rounded transform hover:scale-110 transition duration-500" alt="photo">
+                </router-link>
+                <div class="mt-3">
+                    <router-link to="/">
+                        <h2 class="text-xl font-semibold text-gray-700 font-roboto hover:text-blue-500 transition">
+                            Lorem ipsum dolor sit amet consectetur.
+                        </h2>
+                    </router-link>
+                    <div class="flex mt-2 space-x-5">
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-user"></i>
+                            </span>
+                            Blogging Tips
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-clock"></i>
+                            </span>
+                            June 11, 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow-sm rounded-sm">
+                <router-link to="/" class="overflow-hidden block">
+                    <img src="../../assets/images/js-10.jpg" class="w-full h-50 object-cover rounded transform hover:scale-110 transition duration-500" alt="photo">
+                </router-link>
+                <div class="mt-3">
+                    <router-link to="/">
+                        <h2 class="text-xl font-semibold text-gray-700 font-roboto hover:text-blue-500 transition">
+                            Lorem ipsum dolor sit amet consectetur.
+                        </h2>
+                    </router-link>
+                    <div class="flex mt-2 space-x-5">
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-user"></i>
+                            </span>
+                            Blogging Tips
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-clock"></i>
+                            </span>
+                            June 11, 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow-sm rounded-sm">
+                <router-link to="/" class="overflow-hidden block">
+                    <img src="../../assets/images/php-3.jpg" class="w-full h-50 object-cover rounded transform hover:scale-110 transition duration-500" alt="photo">
+                </router-link>
+                <div class="mt-3">
+                    <router-link to="/">
+                        <h2 class="text-xl font-semibold text-gray-700 font-roboto hover:text-blue-500 transition">
+                            Lorem ipsum dolor sit amet consectetur.
+                        </h2>
+                    </router-link>
+                    <div class="flex mt-2 space-x-5">
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-user"></i>
+                            </span>
+                            Blogging Tips
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-clock"></i>
+                            </span>
+                            June 11, 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white p-4 shadow-sm rounded-sm">
+                <router-link to="/" class="overflow-hidden block">
+                    <img src="../../assets/images/grafikart-1.jpg" class="w-full h-50 object-cover rounded transform hover:scale-110 transition duration-500" alt="photo">
+                </router-link>
+                <div class="mt-3">
+                    <router-link to="/">
+                        <h2 class="text-xl font-semibold text-gray-700 font-roboto hover:text-blue-500 transition">
+                            Lorem ipsum dolor sit amet consectetur.
+                        </h2>
+                    </router-link>
+                    <div class="flex mt-2 space-x-5">
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-user"></i>
+                            </span>
+                            Blogging Tips
+                        </div>
+                        <div class="flex items-center text-gray-600 text-sm">
+                            <span class="mr-2 text-xs">
+                                <i class="far fa-clock"></i>
+                            </span>
+                            June 11, 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
