@@ -13,6 +13,7 @@
         </main>
 
         <Footer/>
+        <Copyright/>
     </div>
 </template>
 
@@ -21,6 +22,7 @@
     import SidebarLeft from '../../components/SidebarLeft.vue'
     import SidebarRight from '../../components/SidebarRight.vue'
     import Footer from '../../components/Footer.vue'
+    import Copyright from '../../components/Copyright.vue'
 
     export default {
         name: 'PublicLayout',
@@ -28,7 +30,8 @@
             Navbar,
             SidebarLeft,
             SidebarRight,
-            Footer
+            Footer,
+            Copyright
         }
     }
 </script>
