@@ -8,24 +8,24 @@
           <router-link :to="{name: 'login'}" class="font-medium text-indigo-600 hover:text-indigo-500"> login to your account </router-link>
         </p>
       </div>
-      <form class="mt-8 space-y-6" action="#" method="POST">
+      <form class="mt-8 space-y-6"  @submit="register">
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
             <label for="fullname" class="sr-only">Full Name</label>
-            <input id="fullname" name="fullname" type="text" autocomplete="email" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="full Name" />
+            <input id="fullname" type="text" autocomplete="email" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="full Name" v-model="user.name"/>
           </div>
           <div>
             <label for="email-address" class="sr-only">Email address</label>
-            <input id="email-address" name="email" type="email" autocomplete="email" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
+            <input id="email-address" e="email" autocomplete="email" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" v-model="user.email"/>
           </div>
           <div>
             <label for="password" class="sr-only">Password</label>
-            <input id="password" name="password" type="password" autocomplete="current-password" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
+            <input id="password" type="password" autocomplete="current-password" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" v-model="user.password"/>
           </div>
           <div>
-            <label for="passwordConfirm" class="sr-only">Password Confirm</label>
-            <input id="passwordConfirm" name="passwordConfirm" type="password" autocomplete="current-password" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password Confirm" />
+            <label for="password_confirm" class="sr-only">Password Confirm</label>
+            <input id="password_confirm" type="password" autocomplete="current-password" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password Confirm" v-model="user.password_confirm"/>
           </div>
         </div>
 
@@ -51,12 +51,27 @@
       </form>
 </template>
 
-<script>
+<script setup>
 import { LockClosedIcon } from '@heroicons/vue/solid'
+import { useRouter } from 'vue-router';
+import store from '../../store';
 
-export default {
-    components: {
-        LockClosedIcon
-    }
+const router = useRouter();
+
+const user = {
+  name: '',
+  email: '',
+  password: '',
+  password_confirm: ''
+};
+
+function register(ev) {
+  ev.preventDefault();
+
+  store
+    .dispatch('register', user)
+    .then((res) => {
+      router.push({ name: 'home' });
+    });
 }
 </script>
