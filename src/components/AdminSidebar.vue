@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li>Item</li>
+            <router-link :to="{ name: 'CategoryList' }">Categories</router-link>
             <li>Item</li>
             <li>Item</li>
         </ul>

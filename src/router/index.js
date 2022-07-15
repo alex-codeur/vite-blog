@@ -32,9 +32,9 @@ const routes = [
             { path: 'users/edit/:id', component: Admin.UserEdit },
             { path: 'users/add', component: Admin.UserAdd },
 
-            { path: 'categories/index', component: Admin.CategoryIndex },
-            { path: 'categories/edit/:id', component: Admin.CategoryEdit },
-            { path: 'categories/add', component: Admin.CategoryAdd },
+            { path: 'categories/index', name: 'CategoryList', component: Admin.CategoryIndex },
+            { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.CategoryEdit },
+            { path: 'categories/add', name: 'CategoryAdd', component: Admin.CategoryAdd },
 
             { path: 'courses/index', component: Admin.CourseIndex },
             { path: 'courses/edit/:id', component: Admin.CourseEdit },
