@@ -1,54 +1,59 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from '../views/public/Home.vue'
-import About from '../views/public/About.vue'
-import Contact from '../views/public/Contact.vue'
-import PostView from '../views/public/PostView.vue'
+import * as Public from '../views/public'
 
-import Login from '../views/auth/Login.vue'
-import Register from '../views/auth/Register.vue'
+import * as Auth from '../views/auth'
 
-import NotFound from '../views/public/NotFound.vue'
+import * as Admin from '../views/admin'
 
-import PublicLayout from '../views/public/Layout.vue'
-import AuthLayout from '../views/auth/AuthLayout.vue'
-import DashboardLayout from '../views/admin/DashboardLayout.vue'
 import store from "../store";
 
 const routes = [
     {
         path: '/',
         name: 'public',
-        component: PublicLayout,
+        component: Public.PublicLayout,
         children: [
-            { path: '/', name: 'home', component: Home },
-            { path: '/about', name: 'about', component: About },
-            { path: '/contact', name: 'contact', component: Contact },
-            { path: '/post', name: 'post', component: PostView }
+            { path: '/', name: 'home', component: Public.Home },
+            { path: '/about', name: 'about', component: Public.About },
+            { path: '/contact', name: 'contact', component: Public.Contact },
+            { path: '/post', name: 'post', component: Public.PostView }
         ]
     },
     {
-        path: '/dashboard',
-        name: 'dashboard',
-        component: DashboardLayout,
+        path: '/admin',
+        name: 'admin',
+        component: Admin.AdminLayout,
         meta: { requiresAuth: true },
         children: [
-            { path: '/dashboard', name: 'dashboard', component: DashboardLayout },
+            { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
+            
+            { path: 'users/index', component: Admin.UserIndex },
+            { path: 'users/edit/:id', component: Admin.UserEdit },
+            { path: 'users/add', component: Admin.UserAdd },
+
+            { path: 'categories/index', component: Admin.CategoryIndex },
+            { path: 'categories/edit/:id', component: Admin.CategoryEdit },
+            { path: 'categories/add', component: Admin.CategoryAdd },
+
+            { path: 'courses/index', component: Admin.CourseIndex },
+            { path: 'courses/edit/:id', component: Admin.CourseEdit },
+            { path: 'courses/add', component: Admin.CourseAdd },
         ]
     },
     {
         path: '/auth',
         redirect: '/login',
         name: 'auth',
-        component: AuthLayout,
+        component: Auth.AuthLayout,
         meta: { isGuest: true },
         children: [
-            { path: '/login', name: 'login', component: Login },
-            { path: '/register', name: 'register', component: Register }
+            { path: '/login', name: 'login', component: Auth.Login },
+            { path: '/register', name: 'register', component: Auth.Register }
         ]
     },
     {
-        path: '/:pathMatch(.*)*', component: NotFound
+        path: '/:pathMatch(.*)*', component: Public.NotFound
     }
 ];
 
