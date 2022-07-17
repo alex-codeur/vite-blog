@@ -36,9 +36,9 @@ const routes = [
             { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.CategoryEdit },
             { path: 'categories/add', name: 'CategoryAdd', component: Admin.CategoryAdd },
 
-            { path: 'courses/index', component: Admin.CourseIndex },
-            { path: 'courses/edit/:id', component: Admin.CourseEdit },
-            { path: 'courses/add', component: Admin.CourseAdd },
+            { path: 'courses', name: 'Courses', component: Admin.Courses },
+            { path: 'courses/create', name: 'CourseCreate', component: Admin.CourseView },
+            { path: 'courses/:id', name: 'CourseView', component: Admin.CourseView },
         ]
     },
     {

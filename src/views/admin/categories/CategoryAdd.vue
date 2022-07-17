@@ -32,13 +32,13 @@
 
 <script setup>
     import { ref } from "vue";
-    import { useRoute } from "vue-router";
+    import { useRoute, useRouter } from "vue-router";
     import store from "../../../store";
 
     import PageComponent from "../../../components/PageComponent.vue";
-import router from "../../../router";
 
     const route = useRoute();
+    const router = useRouter();
 
     // Create empty category
     let model = ref({
@@ -58,7 +58,7 @@ import router from "../../../router";
     function saveCategory() {
         store.dispatch("saveCategory", model.value).then(({ data }) => {
             router.push({
-                name: "CategoryAdd"
+                name: "CategoryList",
             });
         });
     }

@@ -3,11 +3,21 @@
         <template v-slot:header>
             <div class="flex items-center justify-between">
                 <h1 class="text-3xl font-bold text-gray-900">
-                    {{ model.id ? model.title : "Create a Category" }}
+                    {{ route.params.id ? model.title : "Create a Category" }}
                 </h1>
+
+                <button
+                    v-if="route.params.id"
+                    type="button"
+                    @click="deleteCategory()"
+                    class="py-2 px-3 text-white bg-red-500 rounded-md hover:bg-red-700"
+                >
+                    Delete Category
+                </button>
             </div>
         </template>
-        <form @submit.prevent="editCategory">
+        <div v-if="categoryLoading" class="flex justify-center">Loading...</div>
+        <form v-else @submit.prevent="editCategory()">
             <!-- Category Fields -->
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -31,23 +41,33 @@
 </template>
 
 <script setup>
-    import { ref } from "vue";
-    import { useRoute } from "vue-router";
+    import { computed, ref, watch } from "vue";
+    import { useRoute, useRouter } from "vue-router";
     import store from "../../../store";
 
     import PageComponent from "../../../components/PageComponent.vue";
 
     const route = useRoute();
+    const router = useRouter();
+
+    const categoryLoading = computed(() => store.state.currentCategory.loading);
 
     // Create empty category
     let model = ref({
         title: "",
     });
 
+    watch(
+        () => store.state.currentCategory.data,
+        (newVal, oldVal) => {
+            model.value = {
+                ...JSON.stringify(newVal),
+            }
+        }
+    );
+
     if (route.params.id) {
-        model.value = store.state.categories.find(
-            (s) => s.id === parseInt(route.params.id)
-        );
+        store.dispatch('getCategory', route.params.id);
     }
 
      /**
@@ -61,5 +81,18 @@
                 params: { id: data.data.id },
             });
         });
+    }
+
+
+    function deleteCategory() {
+        if (
+            confirm(`Are you sure you want to delete this category? Operation can't be undone!!`)
+        ) {
+            store.dispatch("deleteCategory", model.value.id).then(() => {
+                router.push({
+                    name: "CategoryList",
+                });
+            });
+        }
     }
 </script>

@@ -10,9 +10,8 @@ import CategoryIndex from './categories/CategoryIndex.vue'
 import CategoryEdit from './categories/CategoryEdit.vue'
 import CategoryAdd from './categories/CategoryAdd.vue'
 
-import CourseIndex from './courses/CourseIndex.vue'
-import CourseEdit from './courses/CourseEdit.vue'
-import CourseAdd from './courses/CourseAdd.vue'
+import Courses from './courses/Courses.vue'
+import CourseView from './courses/CourseView.vue'
 
 export {
     AdminLayout,
@@ -23,7 +22,6 @@ export {
     CategoryIndex,
     CategoryEdit,
     CategoryAdd,
-    CourseIndex,
-    CourseEdit,
-    CourseAdd,
+    Courses,
+    CourseView,
 }
