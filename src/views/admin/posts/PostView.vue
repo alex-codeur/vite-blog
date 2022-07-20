@@ -8,7 +8,7 @@
             </div>
         </template>
         <!-- <pre>{{ model }}</pre> -->
-        <form @submit.prevent="saveCourse">
+        <form @submit.prevent="saveCourse" enctype="multipart/form-data">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <!-- Course Fields -->
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -64,7 +64,6 @@ import { useRoute, useRouter } from 'vue-router';
 import store from '../../../store';
 
 import PageComponent from '../../../components/PageComponent.vue';
-import axiosClient from '../../../axios';
 
 const route = useRoute();
 const router = useRouter();
@@ -89,18 +88,6 @@ if (route.params.id) {
     store.dispatch('getCourse', route.params.id);
 }
 
-// function onImageChoose(ev) {
-//     const file = ev.target.files[0];
-
-//     const reader = new FileReader();
-//     reader.onload = () => {
-//         model.value.imageUrl = reader.result;
-
-//         model.value.imageUrl = reader.result;
-//     };
-//     reader.readAsDataURL(file);
-// }
-
 const  onImageChoose = (e) => {
     let file = e.target.files[0];
 
@@ -114,18 +101,6 @@ const  onImageChoose = (e) => {
     };
     reader.readAsDataURL(file);
 }
-
-/**
- * Create or update category
- */
-// function saveCourse() {
-    // store.dispatch("saveCourse", model.value).then(({ data }) => {
-    //     router.push({
-    //         name: "CourseView",
-    //         params: { id: data.data.id },
-    //     });
-    // });
-// }
 
 const saveCourse = () => {
     const formData = new FormData()

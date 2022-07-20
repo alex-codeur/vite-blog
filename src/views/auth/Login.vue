@@ -74,7 +74,8 @@ function login(ev) {
 
   store
     .dispatch('login', user)
-    .then(() => {
+    .then((res) => {
+      // console.log(res)
       router.push({ name: 'home' });
     })
     .catch(err => {

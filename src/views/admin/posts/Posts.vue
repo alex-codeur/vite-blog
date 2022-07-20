@@ -2,12 +2,12 @@
     <PageComponent>
         <template v-slot:header>
             <div class="flex justify-between items-center">
-                <h1 class="text-3xl font-bold text-gray-900">Courses</h1>
-                <router-link :to="{ name: 'CourseCreate' }" class="py-2 px-3 text-white bg-emerald-500 rounded-md hover:bg-emerald-600">Add new Course</router-link>
+                <h1 class="text-3xl font-bold text-gray-900">Posts</h1>
+                <router-link :to="{ name: 'PostCreate' }" class="py-2 px-3 text-white bg-emerald-500 rounded-md hover:bg-emerald-600">Add new Post</router-link>
             </div>
         </template>
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
-            <div
+            <!-- <div
                 v-for="course in courses"
                         :key="course.id"
                 class="flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
@@ -34,7 +34,7 @@
                         </svg>
                     </button>
                 </div>
-            </div>
+            </div> -->
         </div>
     </PageComponent>
 </template>
@@ -44,5 +44,5 @@
     import { computed } from "vue";
     import PageComponent from "../../../components/PageComponent.vue";
 
-    const courses = computed(() => store.state.courses);
+    // const courses = computed(() => store.state.courses);
 </script>

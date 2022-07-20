@@ -27,18 +27,10 @@ const routes = [
         meta: { requiresAuth: true },
         children: [
             { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
-            
-            { path: 'users/index', component: Admin.UserIndex },
-            { path: 'users/edit/:id', component: Admin.UserEdit },
-            { path: 'users/add', component: Admin.UserAdd },
 
-            { path: 'categories/index', name: 'CategoryList', component: Admin.CategoryIndex },
-            { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.CategoryEdit },
-            { path: 'categories/add', name: 'CategoryAdd', component: Admin.CategoryAdd },
-
-            { path: 'courses', name: 'Courses', component: Admin.Courses },
-            { path: 'courses/create', name: 'CourseCreate', component: Admin.CourseView },
-            { path: 'courses/:id', name: 'CourseView', component: Admin.CourseView },
+            { path: 'posts', name: 'Posts', component: Admin.Posts },
+            { path: 'posts/create', name: 'PostCreate', component: Admin.PostView },
+            { path: 'posts/:id', name: 'PostView', component: Admin.PostView },
         ]
     },
     {
