@@ -6,27 +6,28 @@
                 <router-link :to="{ name: 'PostCreate' }" class="py-2 px-3 text-white bg-emerald-500 rounded-md hover:bg-emerald-600">Add new Post</router-link>
             </div>
         </template>
+        <!-- <pre>{{ posts }}</pre> -->
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
-            <!-- <div
-                v-for="course in courses"
-                        :key="course.id"
+            <div
+                v-for="post in posts"
+                        :key="post._id"
                 class="flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
             >
-                <img :src="course.image" alt="" class="w-full h-48 object-cover">
-                <h4 class="mt-4 text-lg font-bold">{{ course.title }}</h4>
-                <div v-html="course.body"></div>
+                <img :src="`http://localhost:5000/api/images/${post.photo}`" alt="" class="w-full h-48 object-cover">
+                <h4 class="mt-4 text-lg font-bold">{{ post.title }}</h4>
+                <div v-html="post.description"></div>
                 <div
                     class="flex justify-between items-center mt-3">
                     <router-link
-                        :to="{ name: 'CourseView', params: { id: course.id } }"
+                        :to="{ name: 'PostView', params: { id: post._id } }"
                         class="flex py-2 px-4 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Edit
                     </router-link>
                     <button 
-                        v-if="course.id"
+                        v-if="post._id"
                         type="button"
-                        @click="emit('delete', course)"
+                        @click="emit('delete', post)"
                         class="h-8 w-8 flex items-center justify-center rounded-full border border-transparent text-sm text-red-500 focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -34,7 +35,7 @@
                         </svg>
                     </button>
                 </div>
-            </div> -->
+            </div>
         </div>
     </PageComponent>
 </template>
@@ -44,5 +45,15 @@
     import { computed } from "vue";
     import PageComponent from "../../../components/PageComponent.vue";
 
-    // const courses = computed(() => store.state.courses);
+    const posts = computed(() => store.state.posts.data);
+
+    store.dispatch('getPosts').then((res) => {
+        console.log(res.data)
+    });
+
+    function deletePost(post) {
+        if (confirm(`Are you sure you want to delete this post? Operation can't be undone!!`)) {
+
+        }
+    }
 </script>
