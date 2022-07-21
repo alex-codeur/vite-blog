@@ -29,8 +29,8 @@ const routes = [
             { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
 
             { path: 'posts', name: 'Posts', component: Admin.Posts },
-            { path: 'posts/create', name: 'PostCreate', component: Admin.PostView },
-            { path: 'posts/:id', name: 'PostView', component: Admin.PostView },
+            { path: 'posts/create', name: 'PostCreate', component: Admin.AddPost },
+            { path: 'posts/edit/:id', name: 'PostEdit', component: Admin.EditPost },
         ]
     },
     {

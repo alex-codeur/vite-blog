@@ -19,7 +19,7 @@
                 <div
                     class="flex justify-between items-center mt-3">
                     <router-link
-                        :to="{ name: 'PostView', params: { id: post._id } }"
+                        :to="{ name: 'PostEdit', params: { id: post._id } }"
                         class="flex py-2 px-4 border border-transparent text-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Edit
@@ -48,7 +48,7 @@
     const posts = computed(() => store.state.posts.data);
 
     store.dispatch('getPosts').then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
     });
 
     function deletePost(post) {

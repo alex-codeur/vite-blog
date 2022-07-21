@@ -43,16 +43,21 @@ const store = createStore({
         savePost({ commit }, post) {
             let response;
 
+            response = axiosClient.post(`api/post`, post)
+                .then((res) => {
+                    commit("savePost", res.data);
+                    return res
+                });
+
+            return response;
+        },
+        updatePost({ commit }, post) {
+            let response;
+
             if (post.id) {
                 response = axiosClient.put(`api/post/${post.id}`, post)
                     .then((res) => {
                         commit("updatePost", res.data);
-                        return res
-                    });
-            } else {
-                response = axiosClient.post(`api/post`, post)
-                    .then((res) => {
-                        commit("savePost", res.data);
                         return res
                     });
             }
@@ -92,7 +97,7 @@ const store = createStore({
             state.posts.loading = loading;
         },
         setCurrentPost: (state, post) => {
-            state.currentPost.data = post.data;
+            state.currentPost.data = post;
         },
         setPosts: (state, posts) => {
             state.posts.data = posts;
