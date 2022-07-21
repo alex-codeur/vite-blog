@@ -51,19 +51,6 @@ const store = createStore({
 
             return response;
         },
-        updatePost({ commit }, post) {
-            let response;
-
-            if (post.id) {
-                response = axiosClient.put(`api/post/${post.id}`, post)
-                    .then((res) => {
-                        commit("updatePost", res.data);
-                        return res
-                    });
-            }
-
-            return response;
-        },
         deletePost({}, id) {
             return axiosClient.delete(`api/post/${id}`);
         },
@@ -104,14 +91,6 @@ const store = createStore({
         },
         savePost: (state, post) => {
             state.posts = [...state.posts, post.data];
-        },
-        updatePost: (state, post) => {
-            state.posts = state.posts.map((s) => {
-                if (s.id == post.data.id) {
-                    return post.data;
-                }
-                return s;
-            });
         },
         logout: (state) => {
             state.user.data = {};

@@ -77,6 +77,7 @@
 
 <script>
 import store from '../../../store';
+import router from '../../../router';
 
 export default {
     name: 'AddPost',
@@ -105,7 +106,11 @@ export default {
             formData.append('photo', this.file)
             formData.append('description', this.post.description)
 
-            store.dispatch("savePost", formData)
+            store.dispatch("savePost", formData).then(() => {
+                this.$router.push({
+                    name: "Posts"
+                });
+            });
         }
     }
 }

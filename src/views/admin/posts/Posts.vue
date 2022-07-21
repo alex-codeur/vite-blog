@@ -45,7 +45,7 @@
     import { computed } from "vue";
     import PageComponent from "../../../components/PageComponent.vue";
 
-    const posts = computed(() => store.state.posts.data);
+    const posts = computed(() => store.state.posts.data.reverse());
 
     store.dispatch('getPosts').then((res) => {
         // console.log(res.data)
