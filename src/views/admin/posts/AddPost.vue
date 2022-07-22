@@ -106,10 +106,12 @@ export default {
             formData.append('photo', this.file)
             formData.append('description', this.post.description)
 
-            store.dispatch("savePost", formData).then(() => {
-                this.$router.push({
-                    name: "Posts"
-                });
+            store.dispatch("savePost", formData).then((res) => {
+                // console.log(res.data);
+            });
+
+            this.$router.push({
+                name: "Posts"
             });
         }
     }
