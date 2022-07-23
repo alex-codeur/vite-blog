@@ -31,6 +31,10 @@ const routes = [
             { path: 'posts', name: 'Posts', component: Admin.Posts },
             { path: 'posts/create', name: 'PostCreate', component: Admin.AddPost },
             { path: 'posts/edit/:id', name: 'PostEdit', component: Admin.EditPost },
+
+            { path: 'categories', name: 'Categories', component: Admin.Categories },
+            { path: 'categories/create', name: 'CategoryCreate', component: Admin.AddCategory },
+            { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.EditCategory },
         ]
     },
     {

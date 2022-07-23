@@ -15,6 +15,14 @@ const store = createStore({
             loading: false,
             data: []
         },
+        currentCategory: {
+            loading: false,
+            data: {},
+        },
+        categories: {
+            loading: false,
+            data: []
+        },
     },
     getters: {},
     actions: {
@@ -54,6 +62,42 @@ const store = createStore({
         deletePost({}, id) {
             return axiosClient.delete(`api/post/${id}`);
         },
+        getCategories({ commit }) {
+            commit("setCategoriesLoading", true);
+            return axiosClient.get(`api/category`)
+                .then((res) => {
+                    commit("setCategoriesLoading", false);
+                    commit("setCategories", res.data);
+                    return res;
+                });
+        },
+        getCategory({ commit }, id) {
+            commit("setCurrentCategoryLoading", true);
+            return axiosClient.get(`api/category/${id}`)
+                .then((res) => {
+                    commit("setCurrentCategory", res.data);
+                    commit("setCurrentCategoryLoading", false);
+                    return res;
+                })
+                .catch((err) => {
+                    commit("setCurrentCategoryLoading", false);
+                    throw err;
+                });
+        },
+        saveCategory({ commit }, category) {
+            let response;
+
+            response = axiosClient.post(`api/category`, category)
+                .then((res) => {
+                    commit("saveCategory", res.data);
+                    return res
+                });
+
+            return response;
+        },
+        deleteCategory({}, id) {
+            return axiosClient.delete(`api/category/${id}`);
+        },
         register({ commit }, user) {
             return axiosClient.post('api/user/register', user)
                 .then(({ data }) => {
@@ -91,6 +135,21 @@ const store = createStore({
         },
         savePost: (state, post) => {
             state.posts = [...state.posts, post.data];
+        },
+        setCurrentCategoryLoading: (state, loading) => {
+            state.currentCategory.loading = loading;
+        },
+        setCategoriesLoading: (state, loading) => {
+            state.categories.loading = loading;
+        },
+        setCurrentCategory: (state, category) => {
+            state.currentCategory.data = category;
+        },
+        setCategories: (state, categories) => {
+            state.categories.data = categories;
+        },
+        saveCategory: (state, category) => {
+            state.categories = [...state.categories, category.data];
         },
         logout: (state) => {
             state.user.data = {};

@@ -1,23 +1,11 @@
 <template>
     <PageComponent>
-        <template v-slot:header>
-            <div class="flex items-center justify-between">
-                <h1 class="text-3xl font-bold text-gray-900">
-                    {{ route.params.id ? model.title : "Create a post" }}
-                </h1>
+        <div class="flex items-center justify-between">
+            <h1 class="text-3xl font-bold text-gray-900">
+                Create a post
+            </h1>
+        </div>
 
-                <button 
-                    v-if="route.params.id"
-                    type="button"
-                    @click="deletePost()"
-                    class="py-2 px-3 text-white bg-red-500 rounded-md hover:bg-red-600"
-                >
-                    Delete Post
-                </button>
-            </div>
-        </template>
-        <!-- <pre>{{ postLoading }}</pre> -->
-        <!-- <div v-if="postLoading" class="flex justify-center">Loading...</div> -->
         <form @submit.prevent="savePost" enctype="multipart/form-data">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <!-- Course Fields -->
