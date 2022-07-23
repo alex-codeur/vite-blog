@@ -12,7 +12,8 @@
             <div
                 v-for="post in posts.data"
                         :key="post._id"
-                class="flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
+                class="opacity-0 animate-fade-in-down flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
+                :style="{animationDelay: `${ind * 0.1}s`}"
             >
                 <img :src="`http://localhost:5000/api/images/${post.photo}`" alt="" class="w-full h-48 object-cover">
                 <h4 class="mt-4 text-lg font-bold">{{ post.title }}</h4>

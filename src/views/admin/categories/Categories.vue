@@ -11,7 +11,8 @@
             <div
                 v-for="category in categories.data"
                         :key="category._id"
-                class="flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
+                class="opacity-0 animate-fade-in-down flex flex-col py-4 px-6 shadow-md bg-white hover:bg-gray-50"
+                :style="{animationDelay: `${ind * 0.1}s`}"
             >
                 <h4 class="mt-4 text-lg font-bold">{{ category.name }}</h4>
                 <div
