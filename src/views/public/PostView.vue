@@ -8,7 +8,7 @@
         </div>
 
         <div class="bg-white shadow-sm rounded-sm">
-            <router-link to="/" class="overflow-hidden block">
+            <router-link to="" class="overflow-hidden block">
                 <img :src="`http://localhost:5000/api/images/${post.photo}`" class="w-full h-96 object-cover rounded transform hover:scale-110 transition" alt="photo">
             </router-link>
             <div class="p-4">
