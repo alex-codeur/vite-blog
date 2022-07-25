@@ -3,75 +3,16 @@
         <div class="bg-white shadow-sm rounded-sm p-4">
             <h3 class="text-xl font-semibold text-gray-700 font-roboto mb-3">Categories</h3>
             <div class="text-gray-700 space-y-2 font-semibold uppercase text-sm">
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
+                <router-link 
+                v-for="category in categories.data"
+                :key="category._id" 
+                to="/" 
+                class="flex items-center leading-4 hover:text-blue-500 transition">
                     <span class="mr-2">
                         <i class="far fa-folder-open"></i>
                     </span>
-                    <span>Beauti</span>
+                    <span>{{ category.name }}</span>
                     <span class="font-normal ml-auto">(12)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Business</span>
-                    <span class="font-normal ml-auto">(15)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Fashion</span>
-                    <span class="font-normal ml-auto">(5)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Food</span>
-                    <span class="font-normal ml-auto">(10)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Learn</span>
-                    <span class="font-normal ml-auto">(3)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Music</span>
-                    <span class="font-normal ml-auto">(7)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Nature</span>
-                    <span class="font-normal ml-auto">(0)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>People</span>
-                    <span class="font-normal ml-auto">(13)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Sport</span>
-                    <span class="font-normal ml-auto">(7)</span>
-                </router-link>
-                <router-link to="/" class="flex items-center leading-4 hover:text-blue-500 transition">
-                    <span class="mr-2">
-                        <i class="far fa-folder-open"></i>
-                    </span>
-                    <span>Technology</span>
-                    <span class="font-normal ml-auto">(17)</span>
                 </router-link>
             </div>
         </div>
@@ -132,8 +73,14 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: 'SidebarLeft'
-    }
+<script setup>
+    import { computed } from "vue";
+    import store from "../store";
+
+    const categories = computed(() => store.state.categories);
+
+
+    store.dispatch('getCategories').then((res) => {
+        // console.log(res.data)
+    });
 </script>

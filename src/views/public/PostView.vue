@@ -185,7 +185,7 @@
             <h5 class="text-base uppercase font-semibold font-roboto">Post a Comment</h5>
             <p class="text-sm text-gray-500 mb-4">12 comments</p>
 
-            <form action="" class="mt-8">
+            <form action="" class="my-5">
                 <h5 class="text-base mb-1">Comment</h5>
                 <textarea name="comment" placeholder="type your comment" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400"></textarea>
                 <button class="inline-block mt-2 text-white px-3 py-2 text-sm border border-gray-200 rounded-sm shadow-sm bg-blue-500 hover:bg-transparent hover:text-blue-500 uppercase transition">Submit</button>
