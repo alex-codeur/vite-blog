@@ -17,7 +17,7 @@ const routes = [
             { path: '/', name: 'home', component: Public.Home },
             { path: '/about', name: 'about', component: Public.About },
             { path: '/contact', name: 'contact', component: Public.Contact },
-            { path: '/post', name: 'post', component: Public.PostView }
+            { path: '/post/:id', name: 'post', component: Public.PostView }
         ]
     },
     {

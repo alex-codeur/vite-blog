@@ -9,16 +9,16 @@
 
         <div class="bg-white shadow-sm rounded-sm">
             <router-link to="/" class="overflow-hidden block">
-                <img src="../../assets/images/mathieu-html.jpg" class="w-full h-96 object-cover rounded transform hover:scale-110 transition" alt="photo">
+                <img :src="`http://localhost:5000/api/images/${post.photo}`" class="w-full h-96 object-cover rounded transform hover:scale-110 transition" alt="photo">
             </router-link>
             <div class="p-4">
                 <router-link to="/">
                     <h2 class="text-2xl font-semibold text-gray-700 font-roboto hover:text-blue-500 transition">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit amet consectetur.
+                        {{ post.title }}
                     </h2>
                 </router-link>
                 <p class="text-gray-500 text-sm mt-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad magnam accusamus a dolore facilis tempore iure vero ab ut corporis reiciendis distinctio veniam aut dolorem, fugiat repellat quidem vitae dignissimos!
+                    {{ post.title }}
                 </p>
                 <p class="text-gray-500 text-sm bg-green-50 border-green-500 p-3 mt-5">
                     <span class="ml-1 text-gray-400 text-xl">
@@ -185,6 +185,12 @@
             <h5 class="text-base uppercase font-semibold font-roboto">Post a Comment</h5>
             <p class="text-sm text-gray-500 mb-4">12 comments</p>
 
+            <form action="" class="mt-8">
+                <h5 class="text-base mb-1">Comment</h5>
+                <textarea name="comment" placeholder="type your comment" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400"></textarea>
+                <button class="inline-block mt-2 text-white px-3 py-2 text-sm border border-gray-200 rounded-sm shadow-sm bg-blue-500 hover:bg-transparent hover:text-blue-500 uppercase transition">Submit</button>
+            </form>
+
             <div class="space-y-4">
                 <div class="flex items-start border-b pb-5 border-gray-200">
                     <div class="flex-shrink-0">
@@ -229,18 +235,33 @@
                     </div>
                 </div>
             </div>
-
-            <form action="" class="mt-8">
-                <h5 class="text-base mb-1">Comment</h5>
-                <textarea name="comment" placeholder="type your comment" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400"></textarea>
-                <button class="inline-block mt-2 text-white px-3 py-2 text-sm border border-gray-200 rounded-sm shadow-sm bg-blue-500 hover:bg-transparent hover:text-blue-500 uppercase transition">Submit</button>
-            </form>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        name: 'PostView'
-    }
+import store from '../../store';
+
+export default {
+    name: 'PostView',
+
+    data() {
+        return {
+            post: {
+                title: "",
+                description: "",
+                username: "",
+                photo: "",
+            },
+            file: "",
+            postLoading: ''
+        }
+    },
+    created() {
+        store.dispatch('getPost', this.$route.params.id).then((res) => {
+            this.post = res.data
+            // console.log(res.data)
+        });
+    },
+}
 </script>
