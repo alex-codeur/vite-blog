@@ -77,7 +77,7 @@
     import { computed } from "vue";
     import store from "../store";
 
-    const categories = computed(() => store.state.categories);
+    const categories = computed(() => store.state.categories.data);
 
 
     store.dispatch('getCategories').then((res) => {

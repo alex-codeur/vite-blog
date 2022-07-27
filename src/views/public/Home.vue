@@ -6,8 +6,8 @@
                 see more
             </router-link>  
         </div>
-
-        <div
+        <!-- <pre>{{ posts.data.slice(0, 1) }}</pre> -->
+        <!-- <div
             v-for="post in posts.data.slice(0, 1)"
                 :key="post._id" 
         class="bg-white shadow-sm rounded-sm">
@@ -38,11 +38,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="grid md:grid-cols-2 grid-cols-1 gap-4 mt-4">
             <div
-                v-for="post in posts.data.slice(0, 4)"
+                v-for="post in posts.data"
                 :key="post._id" 
             class="bg-white p-4 shadow-sm rounded-sm">
                 <router-link :to="{ name: 'post', params: { id: post._id } }" class="overflow-hidden block">
@@ -78,7 +78,7 @@
     import { computed } from "vue";
     import store from "../../store";
 
-    const posts = computed(() => store.state.posts);
+    const posts = computed(() => store.state.posts.data);
 
 
     store.dispatch('getPosts').then((res) => {

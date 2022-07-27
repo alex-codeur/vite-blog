@@ -260,7 +260,7 @@ export default {
     created() {
         store.dispatch('getPost', this.$route.params.id).then((res) => {
             this.post = res.data
-            // console.log(res.data)
+            console.log(res.data)
         });
     },
 }

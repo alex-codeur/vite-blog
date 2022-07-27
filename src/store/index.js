@@ -28,7 +28,7 @@ const store = createStore({
     actions: {
         getPosts({ commit }) {
             commit("setPostsLoading", true);
-            return axiosClient.get(`api/post`)
+            return axiosClient.get(`api/post/top`)
                 .then((res) => {
                     commit("setPostsLoading", false);
                     commit("setPosts", res.data);
