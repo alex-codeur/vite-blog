@@ -45,7 +45,7 @@ import { useRoute, useRouter } from "vue-router";
     import PageComponent from "../../../components/PageComponent.vue";
 import store from "../../../store";
 
-    const categories = computed(() => store.state.categories);
+    const categories = computed(() => store.state.categories.data);
 
     const route = useRoute();
     const router = useRouter();
