@@ -28,6 +28,15 @@ const store = createStore({
     actions: {
         getPosts({ commit }) {
             commit("setPostsLoading", true);
+            return axiosClient.get(`api/post`)
+                .then((res) => {
+                    commit("setPostsLoading", false);
+                    commit("setPosts", res.data);
+                    return res;
+                });
+        },
+        getTopPosts({ commit }) {
+            commit("setPostsLoading", true);
             return axiosClient.get(`api/post/top`)
                 .then((res) => {
                     commit("setPostsLoading", false);

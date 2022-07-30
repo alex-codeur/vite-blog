@@ -81,7 +81,7 @@
     const posts = computed(() => store.state.posts.data);
 
 
-    store.dispatch('getPosts').then((res) => {
+    store.dispatch('getTopPosts').then((res) => {
         // console.log(res.data)
     });
 </script>

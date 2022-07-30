@@ -18,78 +18,8 @@
                     </h2>
                 </router-link>
                 <p class="text-gray-500 text-sm mt-2">
-                    {{ post.title }}
+                    {{ post.description }}
                 </p>
-                <p class="text-gray-500 text-sm bg-green-50 border-green-500 p-3 mt-5">
-                    <span class="ml-1 text-gray-400 text-xl">
-                        <i class="fas fa-quote-left"></i>
-                    </span>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad magnam accusamus a dolore facilis tempore iure vero ab ut corporis reiciendis distinctio veniam aut dolorem, fugiat repellat quidem vitae dignissimos!
-                    <span class="ml-1 text-gray-400 text-xl">
-                        <i class="fas fa-quote-right"></i>
-                    </span>
-                </p>  
-                <p class="text-gray-500 text-sm mt-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad magnam accusamus a dolore facilis tempore iure vero ab ut corporis reiciendis distinctio veniam aut dolorem, fugiat repellat quidem vitae dignissimos!
-                </p>
-                
-                <ul class="mt-6 pl-5">
-                    <li class="text-sm">
-                        <span class="mr-1">
-                            <i class="fas fa-angle-right"></i>
-                        </span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </li>
-                    <li class="text-sm">
-                        <span class="mr-1">
-                            <i class="fas fa-angle-right"></i>
-                        </span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </li>
-                    <li class="text-sm">
-                        <span class="mr-1">
-                            <i class="fas fa-angle-right"></i>
-                        </span>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </li>
-                </ul>
-
-                <p class="text-gray-500 text-sm mt-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad magnam accusamus a dolore facilis tempore iure vero ab ut corporis reiciendis distinctio veniam aut dolorem, fugiat repellat quidem vitae dignissimos! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta dolor animi iusto, deserunt minima velit. Dicta rerum culpa alias dolor expedita explicabo. Distinctio incidunt dolor ad maiores dicta itaque iste!
-                </p>
-                <p class="text-gray-500 text-sm mt-2">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad magnam accusamus a dolore facilis tempore iure vero ab ut corporis reiciendis distinctio veniam aut dolorem, fugiat repellat quidem vitae dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus pariatur, placeat ad, asperiores amet illo voluptatibus veniam molestiae obcaecati, ea magnam ipsum et! Omnis eligendi vel quidem similique iusto.
-                </p>
-
-                <div class="flex flex-wrap gap-2 mt-4">
-                    <router-link to="/" class="px-3 py-1 text-sm border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white transition">
-                        Beauti
-                    </router-link>
-                    <router-link to="/" class="px-3 py-1 text-sm border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white transition">
-                        Sports
-                    </router-link>
-                    <router-link to="/" class="px-3 py-1 text-sm border border-gray-200 rounded-sm hover:bg-blue-500 hover:text-white transition">
-                        Business
-                    </router-link>
-                </div>
-
-                <div class="flex gap-2 border-t pt-5 mt-5">
-                    <router-link to="/" class="w-8 h-8 rounded-sm flex items-center justify-center border border-gray-400 text-base text-gray-800">
-                        <i class="fab fa-facebook-f"></i>
-                    </router-link>
-                    <router-link to="/" class="w-8 h-8 rounded-sm flex items-center justify-center border border-gray-400 text-base text-gray-800">
-                        <i class="fab fa-twitter"></i>
-                    </router-link>
-                    <router-link to="/" class="w-8 h-8 rounded-sm flex items-center justify-center border border-gray-400 text-base text-gray-800">
-                        <i class="fab fa-instagram"></i>
-                    </router-link>
-                    <router-link to="/" class="w-8 h-8 rounded-sm flex items-center justify-center border border-gray-400 text-base text-gray-800">
-                        <i class="fab fa-pinterest-p"></i>
-                    </router-link>
-                    <router-link to="/" class="w-8 h-8 rounded-sm flex items-center justify-center border border-gray-400 text-base text-gray-800">
-                        <i class="fab fa-linkedin-in"></i>
-                    </router-link>
-                </div>
             </div>
         </div>
 
@@ -185,49 +115,27 @@
             <h5 class="text-base uppercase font-semibold font-roboto">Post a Comment</h5>
             <p class="text-sm text-gray-500 mb-4">12 comments</p>
 
-            <form action="" class="my-5">
+
+            <form @submit.prevent="saveComment" class="my-5">
                 <h5 class="text-base mb-1">Comment</h5>
-                <textarea name="comment" placeholder="type your comment" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400"></textarea>
+                <input type="hidden" v-model="comment.commenterId" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400">
+                <input type="hidden" v-model="comment.commenterPseudo" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400">
+                <textarea v-model="comment.text" name="comment" placeholder="type your comment" class="w-full border border-gray-200 py-3 px-5 text-sm rounded-sm focus:border-gray-400"></textarea>
                 <button class="inline-block mt-2 text-white px-3 py-2 text-sm border border-gray-200 rounded-sm shadow-sm bg-blue-500 hover:bg-transparent hover:text-blue-500 uppercase transition">Submit</button>
             </form>
 
             <div class="space-y-4">
-                <div class="flex items-start border-b pb-5 border-gray-200">
+                <div 
+                v-for="comment in post.comments"
+                :key="comment._id"
+                class="flex items-start border-b pb-5 border-gray-200">
                     <div class="flex-shrink-0">
                         <img src="../../assets/images/alex3.png" class="w-12 h-12 rounded-full" alt="avatar">
                     </div>
                     <div class="flex-grow pl-4">
-                        <h4 class="text-base text-roboto font-semibold">Alex Esaki</h4>
+                        <h4 class="text-base text-roboto font-semibold">{{ comment.commenterPseudo }}</h4>
                         <p class="text-xs text-gray-400">10 July 2022 at 14:08 pm</p>
-                        <p class="text-sm mt-2">Great article, nice work.</p>
-                        <div class="flex mt-2 space-x-3">
-                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
-                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-start border-b pb-5 border-gray-200">
-                    <div class="flex-shrink-0">
-                        <img src="../../assets/images/alex3.png" class="w-12 h-12 rounded-full" alt="avatar">
-                    </div>
-                    <div class="flex-grow pl-4">
-                        <h4 class="text-base text-roboto font-semibold">Alex Esaki</h4>
-                        <p class="text-xs text-gray-400">10 July 2022 at 14:08 pm</p>
-                        <p class="text-sm mt-2">Great article, nice work.</p>
-                        <div class="flex mt-2 space-x-3">
-                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
-                            <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-start border-gray-200">
-                    <div class="flex-shrink-0">
-                        <img src="../../assets/images/alex3.png" class="w-12 h-12 rounded-full" alt="avatar">
-                    </div>
-                    <div class="flex-grow pl-4">
-                        <h4 class="text-base text-roboto font-semibold">Alex Esaki</h4>
-                        <p class="text-xs text-gray-400">10 July 2022 at 14:08 pm</p>
-                        <p class="text-sm mt-2">Great article, nice work.</p>
+                        <p class="text-sm mt-2">{{ comment.text }}</p>
                         <div class="flex mt-2 space-x-3">
                             <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Reply</button>
                             <button class="text-gray-500 px-1 text-xs border border-gray-200 rounded-sm shadow-sm hover:bg-blue-500 hover:text-white transition">Delete</button>
@@ -241,6 +149,7 @@
 
 <script>
 import store from '../../store';
+import axiosClient from '../../axios';
 
 export default {
     name: 'PostView',
@@ -254,7 +163,16 @@ export default {
                 photo: "",
             },
             file: "",
-            postLoading: ''
+            postLoading: '',
+            comment: {
+                commenterId: '',
+                commenterPseudo: '',
+                text: '',
+            },
+            user: {
+                email: '',
+                password: '',
+            }
         }
     },
     created() {
@@ -262,6 +180,23 @@ export default {
             this.post = res.data
             console.log(res.data)
         });
+
+        this.user = store.state.user.data;
+
+        this.comment.commenterId = this.user._id;
+        this.comment.commenterPseudo = this.user.pseudo;
     },
+    methods: {
+        async saveComment() {
+            const response = await axiosClient.patch(`api/post/comment-post/${this.$route.params.id}`, this.comment)
+        
+            this.$router.push({
+                name: "post",
+                params: {
+                    message: response.message
+                }
+            });
+        }
+    }
 }
 </script>
