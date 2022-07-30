@@ -79,7 +79,7 @@
                 <!-- form row end -->
 
                 <div class="mt-4">
-                    <button type="submit" class="block w-full py-2 text-white bg-blue-400 border border-blue-400 rounded hover:bg-transparent hover:text-blue-400 transition uppercase font-roboto font-medium">
+                    <button type="submit" class="block w-full py-2 text-white bg-orange-800 border border-orange-800 rounded hover:bg-transparent hover:text-orange-800 transition uppercase font-roboto font-medium">
                         Save changes
                     </button>
                 </div>

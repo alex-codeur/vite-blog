@@ -2,8 +2,8 @@
     <nav class="bg-white shadow-sm">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="w-60">
-                <router-link :to="{name: 'home'}">
-                    <img src="../assets/images/logo-md.svg" alt="logo">
+                <router-link :to="{name: 'home'}" class="flex">
+                    <img src="../assets/images/Logo.jpg" class="w-8" alt="logo"><span class="pl-2 text-gray-600 font-poppins font-bold text-2xl text-start">core</span>
                 </router-link>
             </div>
             <div class="lg:ml-5 ml-auto">

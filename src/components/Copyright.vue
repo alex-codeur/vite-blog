@@ -2,8 +2,10 @@
     <!-- copyright -->
     <div class="bg-gray-800 py-4">
         <div class="container mx-auto flex items-center justify-between px-4">
-            <p class="text-white">&copy; pres2vous - All Rights Reserved</p>
-            <img src="../assets/images/logo-sm.svg" alt="payment" class="h-5">
+            <p class="text-white">&copy; core - All Rights Reserved</p>
+            <router-link :to="{name: 'home'}" class="flex">
+                <img src="../assets/images/Logo.jpg" class="w-8" alt="logo"><span class="pl-2 text-gray-600 font-poppins font-bold text-2xl text-start">core</span>
+            </router-link>
         </div>
 
         <div class="fixed w-full h-full bg-black left-0 top-0 z-10 xl:hidden bg-opacity-25 opacity-0 invisible transition-all duration-500" id="sidebar_wrapper" @click="desappear">

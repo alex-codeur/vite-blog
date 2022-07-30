@@ -8,7 +8,7 @@
                     <img src="../assets/images/Logo.jpg" class="w-8" alt="logo"><span class="pl-2 text-gray-600 font-poppins font-bold text-2xl text-start">core</span>
                 </router-link>
                 <p class="text-gray-500 w-80">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis commod.
+                    Après avoir appris sur Internet quoi de plus normal que de partager à son tour ? Passionné par le web depuis un peu plus de 5 ans maintenant j'aime partager mes compétences et mes découvertes avec les personnes qui ont cette même passion pour le web
                 </p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-gray-500">
@@ -31,72 +31,63 @@
             <div class="col-span-2 grid md:grid-cols-2 grid-cols-1 gap-8">
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Solutions</h3>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Echange</h3>
                         <div class="mt-4 space-y-4">
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Marketing
+                                Forum
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Analytics
-                            </a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Commerce
-                            </a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Insights
+                                Creer un topic
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Ressources</h3>
                         <div class="mt-4 space-y-4">
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Pricing
+                                Politique de confidentialite
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Documentation
+                                Conditions d'utilisation
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Guides
-                            </a>
-                            <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                API Status
+                                Mentions legales & CGU
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 grid-cols-1 gap-8">
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Company</h3>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Liens utiles</h3>
                         <div class="mt-4 space-y-4">
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                About
+                                Formations
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Blog
+                                Podcasts
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Jobs
+                                Livres & Ebooks
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Press
+                                Support Technique
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Legal</h3>
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Autres</h3>
                         <div class="mt-4 space-y-4">
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Claim
+                                A propos
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Privacy
+                                Contact
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Policy
+                                Tchat
                             </a>
                             <a href="#" class="text-base text-gray-500 hover:text-gray-900 block">
-                                Terms
+                                Par Email
                             </a>
                         </div>
                     </div>

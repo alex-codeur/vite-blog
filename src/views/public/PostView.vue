@@ -1,11 +1,5 @@
 <template>
     <div class="xl:w-6/12 lg:w-8/12 w-full mx-6">
-        <div class="flex justify-between bg-white px-2 py-2 items-center rounded-sm mb-5">
-            <h5 class="text-base uppercase font-semibold font-roboto">Business</h5>
-            <router-link to="/" class="text-white bg-blue-500 px-1 py-1 rounded-sm uppercase text-sm hover:bg-transparent hover:text-blue-500 transition border border-blue-500">
-                see more
-            </router-link>  
-        </div>
 
         <div class="bg-white shadow-sm rounded-sm">
             <router-link to="" class="overflow-hidden block">
