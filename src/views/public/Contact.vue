@@ -1,6 +1,33 @@
 <template>
     <div class="xl:w-6/12 lg:w-8/12 w-full mx-6 bg-white shadow-sm rounded-sm">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quibusdam neque consectetur suscipit facere eligendi fuga tenetur eius explicabo esse veritatis, expedita voluptas molestias error officia facilis. Nam, iusto eum.
+        <!-- Login -->
+        <div class="container py-16">
+            <div class="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
+                <h2 class="text-2xl uppercase font-medium mb-1">Formulaire de contact</h2>
+                <form action="#">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="fullname" class="text-gray-600 mb-2 block">Full Name</label>
+                            <input type="text" id="fullname" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="text-gray-600 mb-2 block">Email address</label>
+                            <input type="email" id="email" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400" placeholder="Enter your email address">
+                        </div>
+                        <div>
+                            <label for="email" class="text-gray-600 mb-2 block">Your Message</label>
+                            <textarea name="msg" id="msg" cols="10" rows="10" class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400" placeholder="Enter your message"></textarea>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="block w-full py-2 text-white bg-blue-400 border border-blue-400 rounded hover:bg-transparent hover:text-blue-400 transition uppercase font-roboto font-medium">
+                            Envoyer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Login end -->
     </div>
 </template>
 

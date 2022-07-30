@@ -16,6 +16,7 @@ const routes = [
         children: [
             { path: '/', name: 'home', component: Public.Home },
             { path: '/about', name: 'about', component: Public.About },
+            { path: '/account', name: 'account', component: Public.Account },
             { path: '/contact', name: 'contact', component: Public.Contact },
             { path: '/post/:id', name: 'post', component: Public.PostView }
         ]

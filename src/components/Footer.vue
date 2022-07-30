@@ -7,7 +7,7 @@
                 <router-link :to="{name: 'home'}" class="flex">
                     <img src="../assets/images/Logo.jpg" class="w-8" alt="logo"><span class="pl-2 text-gray-600 font-poppins font-bold text-2xl text-start">core</span>
                 </router-link>
-                <p class="text-gray-500">
+                <p class="text-gray-500 w-80">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis commod.
                 </p>
                 <div class="flex space-x-6">
