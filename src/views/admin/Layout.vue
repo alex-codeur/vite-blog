@@ -2,11 +2,11 @@
   <div class="min-h-full">
     <AdminNav/>
     <!-- <AdminHeader/> -->
-    <div class="ad_contain">
-      <div id="ad_side">
+    <div class="grid grid-cols-6">
+      <div class="col-span-1 bg-gray-300 min-h-screen">
         <AdminSidebar/>
       </div>
-      <div id="ad_display">
+      <div class="col-span-5">
         <router-view/>
       </div>
     </div>
