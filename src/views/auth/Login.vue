@@ -80,7 +80,7 @@ function login(ev) {
       router.push({ name: 'home' });
     })
     .catch(err => {
-      errorMsg.value = err.response.data.message;
+      errorMsg.value = err.response.data.error;
     });
 }
 </script>

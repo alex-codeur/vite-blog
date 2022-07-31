@@ -10,6 +10,8 @@ import Categories from './categories/Categories.vue'
 import AddCategory from './categories/AddCategory.vue'
 import EditCategory from './categories/EditCategory.vue'
 
+import Surveys from './surveys/Surveys.vue'
+
 export {
     AdminLayout,
     Dashboard,
@@ -18,5 +20,6 @@ export {
     EditPost,
     Categories,
     AddCategory,
-    EditCategory
+    EditCategory,
+    Surveys
 }

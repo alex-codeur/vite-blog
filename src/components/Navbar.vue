@@ -35,12 +35,13 @@
                 <input type="text" placeholder="search..." class="block w-full border-none rounded-3xl pl-11 pr-2 py-2 focus:outline-none bg-gray-100 text-sm text-gray-700 shadow-500">
             </div>
             <div class="lg:ml-5 ml-auto">
-                <div v-if="user.pseudo">
+                <!-- <pre>{{ user }}</pre> -->
+                <div v-if="user.name">
                     <router-link :to="{name: 'login'}" class="flex items-center text-sm font-semibold hover:text-blue-500 transition">
                         <span class="mr-2">
                             <i class="far fa-user"></i>
                         </span>
-                        {{ user.pseudo }}
+                        {{ user.name }}
                     </router-link>
                     <a 
                         @click="logout"

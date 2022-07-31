@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axiosClient from '../axios';
+import axiosSurvey from '../laraxios'
 
 const store = createStore({
     state: {
@@ -108,22 +109,22 @@ const store = createStore({
             return axiosClient.delete(`api/category/${id}`);
         },
         register({ commit }, user) {
-            return axiosClient.post('api/user/register', user)
+            return axiosSurvey.post('/register', user)
                 .then(({ data }) => {
                     commit('setUser', data);
                     return data;
                 });
         },
         login({ commit }, user) {
-            return axiosClient.post('api/user/login', user)
+            return axiosSurvey.post('/login', user)
                 .then(({ data }) => {
                     commit('setUser', data);
                     return data;
                 });
         },
         logout({ commit }) {
-            return axiosClient.get('api/user/logout')
-                .then((response) => {
+            return axiosSurvey.post('/logout')
+                .then(response => {
                     commit('logout');
                     return response;
                 });

@@ -36,6 +36,8 @@ const routes = [
             { path: 'categories', name: 'Categories', component: Admin.Categories },
             { path: 'categories/create', name: 'CategoryCreate', component: Admin.AddCategory },
             { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.EditCategory },
+
+            { path: 'surveys', name: 'Surveys', component: Admin.Surveys },
         ]
     },
     {
