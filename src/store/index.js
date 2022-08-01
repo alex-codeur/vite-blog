@@ -6,11 +6,11 @@ const store = createStore({
     state: {
         user: {
             data: {},
-            token: sessionStorage.getItem('TOKEN'),
+            token: sessionStorage.getItem('TOKENLARA'),
         },
         userLara: {
             data: {},
-            token: sessionStorage.getItem('TOKENLARA'),
+            token: sessionStorage.getItem('TOKEN'),
         },
         currentSurvey: {
             loading: false,
@@ -266,7 +266,7 @@ const store = createStore({
         },
         setUserLara: (state, userLaraData) => {
             state.userLara.token = userLaraData.token;
-            state.userLara.data = userLaraData.userLara;
+            state.userLara.data = userLaraData.user;
             sessionStorage.setItem('TOKENLARA', userLaraData.token);
         }
     },
