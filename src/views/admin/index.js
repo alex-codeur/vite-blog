@@ -11,6 +11,7 @@ import AddCategory from './categories/AddCategory.vue'
 import EditCategory from './categories/EditCategory.vue'
 
 import Surveys from './surveys/Surveys.vue'
+import SurveyView from './surveys/SurveyView.vue'
 
 export {
     AdminLayout,
@@ -21,5 +22,6 @@ export {
     Categories,
     AddCategory,
     EditCategory,
-    Surveys
+    Surveys,
+    SurveyView
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-full">
+  <div class="min-h-full bg-gray-100">
     <AdminNav/>
     <!-- <AdminHeader/> -->
     <div class="grid grid-cols-6">

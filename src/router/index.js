@@ -38,6 +38,8 @@ const routes = [
             { path: 'categories/edit/:id', name: 'CategoryEdit', component: Admin.EditCategory },
 
             { path: 'surveys', name: 'Surveys', component: Admin.Surveys },
+            { path: 'surveys/create', name: 'SurveyCreate', component: Admin.SurveyView },
+            { path: 'surveys/edit/:id', name: 'SurveyView', component: Admin.SurveyView },
         ]
     },
     {
