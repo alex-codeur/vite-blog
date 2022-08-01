@@ -18,14 +18,14 @@
                             Image
                         </label>
                         <div class="mt-1 flex items-center">
-                            <img v-if="model.image" :src="model.image" :alt="model.title" class="w-64 h-48 object-cover">
+                            <img v-if="model.image_url" :src="model.image_url" :alt="model.title" class="w-64 h-48 object-cover">
                             <span v-else class="flex items-center justify-center h-16 w-16 rounded-full overflow-hidden bg-gray-100">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-[80%] w-[80%] text-gray-300" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" clip-rule="evenodd" />
                                 </svg>
                             </span>
                             <button type="button" class="relative overflow-hidden ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                <input type="file" ref="file" @change="selectFile" class="absolute left-0 top-0 right-0 bottom-0 opacity-0 cursor-pointer">
+                                <input type="file" ref="file" @change="onImageChoose" class="absolute left-0 top-0 right-0 bottom-0 opacity-0 cursor-pointer">
                                 Change
                             </button>
                         </div>
@@ -132,6 +132,20 @@ import QuestionEditor from '../../../components/editor/QuestionEditor.vue';
         model.value = store.state.surveys.find(
             (s) =>s.id === parseInt(route.params.id)
         );
+    }
+
+    function onImageChoose(ev) {
+        const file = ev.target.files[0];
+
+        const reader = new FileReader();
+        reader.onload = () => {
+            // The field to send on backend and apply validations
+            model.value.image = reader.result;
+
+            // The field to display here
+            model.value.image_url = reader.result;
+        };
+        reader.readAsDataURL(file);
     }
 
     function addQuestion(index) {
