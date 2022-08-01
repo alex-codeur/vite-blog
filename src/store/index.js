@@ -268,6 +268,9 @@ const store = createStore({
 
             return response;
         },
+        deleteSurvey({}, id) {
+            return axiosSurvey.delete(`/survey/${id}`);
+        },
         getPosts({ commit }) {
             commit("setPostsLoading", true);
             return axiosClient.get(`api/post`)
