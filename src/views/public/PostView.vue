@@ -108,7 +108,7 @@
         <div class="bg-white p-4 rounded-sm shadow-sm mt-8">
             <h5 class="text-base uppercase font-semibold font-roboto">Post a Comment</h5>
             <p class="text-sm text-gray-500 mb-4">12 comments</p>
-
+            <!-- <pre>{{ user }}</pre> -->
 
             <form @submit.prevent="saveComment" class="my-5">
                 <h5 class="text-base mb-1">Comment</h5>
@@ -172,7 +172,6 @@ export default {
     created() {
         store.dispatch('getPost', this.$route.params.id).then((res) => {
             this.post = res.data
-            console.log(res.data)
         });
 
         this.user = store.state.user.data;

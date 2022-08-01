@@ -36,12 +36,12 @@
             </div>
             <div class="lg:ml-5 ml-auto">
                 <!-- <pre>{{ user }}</pre> -->
-                <div v-if="user.name">
+                <div v-if="user.pseudo">
                     <router-link :to="{name: 'login'}" class="flex items-center text-sm font-semibold hover:text-blue-500 transition">
                         <span class="mr-2">
                             <i class="far fa-user"></i>
                         </span>
-                        {{ user.name }}
+                        {{ user.pseudo }}
                     </router-link>
                     <a 
                         @click="logout"

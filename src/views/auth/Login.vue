@@ -74,8 +74,19 @@ let errorMsg = ref('');
 function login(ev) {
   ev.preventDefault();
 
+  // laravel
   store
     .dispatch('login', user)
+    .then(() => {
+      router.push({ name: 'home' });
+    })
+    .catch(err => {
+      errorMsg.value = err.response.data.error;
+    });
+
+  // node js
+  store
+    .dispatch('loginUser', user)
     .then(() => {
       router.push({ name: 'home' });
     })

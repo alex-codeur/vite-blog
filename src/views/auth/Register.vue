@@ -14,7 +14,7 @@
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
             <label for="fullname" class="sr-only">Full Name</label>
-            <input id="fullname" name="name" type="text" autocomplete="email" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="full Name" v-model="user.name"/>
+            <input id="fullname" name="name" type="text" autocomplete="name" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="full Name" v-model="user.pseudo"/>
           </div>
           <div>
             <label for="email-address" class="sr-only">Email address</label>
@@ -61,7 +61,7 @@ import store from '../../store';
 const router = useRouter();
 
 const user = {
-  name: '',
+  pseudo: '',
   email: '',
   password: '',
   password_confirmation: ''
@@ -70,8 +70,16 @@ const user = {
 function register(ev) {
   ev.preventDefault();
 
+  // laravel
   store
     .dispatch('register', user)
+    .then((res) => {
+      router.push({ name: 'home' });
+    });
+
+  // node js
+  store
+    .dispatch('registerUser', user)
     .then((res) => {
       router.push({ name: 'home' });
     });

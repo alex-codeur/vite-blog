@@ -8,6 +8,10 @@ const store = createStore({
             data: {},
             token: sessionStorage.getItem('TOKEN'),
         },
+        userLara: {
+            data: {},
+            token: sessionStorage.getItem('TOKENLARA'),
+        },
         currentSurvey: {
             loading: false,
             data: {}
@@ -159,22 +163,45 @@ const store = createStore({
         deleteCategory({}, id) {
             return axiosClient.delete(`api/category/${id}`);
         },
+        // Laravel
         register({ commit }, user) {
             return axiosSurvey.post('/register', user)
                 .then(({ data }) => {
-                    commit('setUser', data);
+                    commit('setUserLara', data);
                     return data;
                 });
         },
         login({ commit }, user) {
             return axiosSurvey.post('/login', user)
                 .then(({ data }) => {
-                    commit('setUser', data);
+                    commit('setUserLara', data);
                     return data;
                 });
         },
         logout({ commit }) {
             return axiosSurvey.post('/logout')
+                .then(response => {
+                    commit('logoutLara');
+                    return response;
+                });
+        },
+        // Node js
+        registerUser({ commit }, user) {
+            return axiosClient.post('api/user/register', user)
+                .then(({ data }) => {
+                    commit('setUser', data);
+                    return data;
+                });
+        },
+        loginUser({ commit }, user) {
+            return axiosClient.post('api/user/login', user)
+                .then(({ data }) => {
+                    commit('setUser', data);
+                    return data;
+                });
+        },
+        logoutUser({ commit }) {
+            return axiosClient.get('api/user/logout')
                 .then(response => {
                     commit('logout');
                     return response;
@@ -232,6 +259,15 @@ const store = createStore({
             state.user.token = userData.token;
             state.user.data = userData.user;
             sessionStorage.setItem('TOKEN', userData.token);
+        },
+        logoutLara: (state) => {
+            state.userLara.data = {};
+            state.userLara.token = null;
+        },
+        setUserLara: (state, userLaraData) => {
+            state.userLara.token = userLaraData.token;
+            state.userLara.data = userLaraData.userLara;
+            sessionStorage.setItem('TOKENLARA', userLaraData.token);
         }
     },
     modules: {}
