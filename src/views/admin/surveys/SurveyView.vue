@@ -15,7 +15,7 @@
             </div>
         </template>
         <div v-if="surveyLoading" class="flex justify-center">Loading...</div>
-        <form v-else @submit.prevent="saveSurvey" enctype="multipart/form-data">
+        <form v-else @submit.prevent="saveSurvey" enctype="multipart/form-data" class="animate-fade-in-down">
             <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <!-- Course Fields -->
                 <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
@@ -199,6 +199,10 @@ import QuestionEditor from '../../../components/editor/QuestionEditor.vue';
      */
     function saveSurvey() {
         store.dispatch("saveSurvey", model.value).then(({ data }) => {
+            store.commit('notify', {
+                type: 'success',
+                message: 'Survey was successfully updated'
+            });
             router.push({
                 name: "SurveyView",
                 params: { id: data.data.id },

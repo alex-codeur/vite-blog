@@ -8,6 +8,8 @@
       </div>
       <div class="col-span-5">
         <router-view/>
+
+        <Notification/>
       </div>
     </div>
   </div>
@@ -17,14 +19,16 @@
 import AdminHeader from '../../components/AdminHeader.vue'
 import AdminNav from '../../components/AdminNav.vue'
 import AdminSidebar from '../../components/AdminSidebar.vue'
+import Notification from '../../components/Notification.vue'
 
 export default {
     name: 'AdminLayout',
     components: {
-      AdminHeader,
-      AdminNav,
-      AdminSidebar
-    },
+    AdminHeader,
+    AdminNav,
+    AdminSidebar,
+    Notification
+},
 }
 </script>
 

@@ -6,14 +6,18 @@
                 <router-link :to="{ name: 'SurveyCreate' }" class="py-2 px-3 text-white bg-emerald-500 rounded-md hover:bg-emerald-600">Add new Survey</router-link>
             </div>
         </template>
-        <!-- <pre>{{ surveyLoading }}</pre> -->
-        <!-- <div v-if="surveys.loading" class="flex justify-center">Loading...</div> -->
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
-            <SurveyListItem 
-                v-for="survey in surveys"
-                :key="survey.id"
-                :survey="survey"
-                @delete="deleteSurvey(survey)"/>
+        
+        <div v-if="surveyLoading" class="flex justify-center">Loading...</div>
+        <div v-else>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+                <SurveyListItem 
+                    v-for="(survey, ind) in surveys.data"
+                    :key="survey.id"
+                    :survey="survey"
+                    class="opacity-0 animate-fade-in-down"
+                    :style="{ animationDelay: `${ind * 0.1}s` }"
+                    @delete="deleteSurvey(survey)"/>
+            </div>
         </div>
     </PageComponent>
 </template>
@@ -24,7 +28,7 @@
     import PageComponent from '../../../components/PageComponent.vue';
 import SurveyListItem from '../../../components/SurveyListItem.vue';
 
-    const surveys = computed(() => store.state.surveys.data);
+    const surveys = computed(() => store.state.surveys);
 
     store.dispatch('getSurveys');
 

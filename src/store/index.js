@@ -21,6 +21,11 @@ const store = createStore({
             data: []
         },
         questionTypes: ["text", "select", "radio", "checkbox", "textarea"],
+        notification: {
+            show: false,
+            type: null,
+            message: null
+        },
         currentPost: {
             loading: false,
             data: {},
@@ -268,6 +273,14 @@ const store = createStore({
             state.userLara.token = userLaraData.token;
             state.userLara.data = userLaraData.user;
             sessionStorage.setItem('TOKENLARA', userLaraData.token);
+        },
+        notify: (state, { message, type }) => {
+            state.notification.show = true;
+            state.notification.type = type;
+            state.notification.message = message;
+            setTimeout(() => {
+                state.notification.show = false;
+            }, 3000);
         }
     },
     modules: {}
