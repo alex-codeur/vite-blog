@@ -113,7 +113,7 @@
             const router = useRouter();
 
             function logout() {
-                store.dispatch('logout')
+                store.dispatch('logoutUser')
                 .then(() => {
                     router.push({
                     name: 'login'

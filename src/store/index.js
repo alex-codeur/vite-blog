@@ -4,6 +4,10 @@ import axiosSurvey from '../laraxios'
 
 const store = createStore({
     state: {
+        dashboard: {
+            loading: false,
+            data: {}
+        },
         user: {
             data: {},
             token: sessionStorage.getItem('TOKENLARA'),
@@ -46,6 +50,19 @@ const store = createStore({
     },
     getters: {},
     actions: {
+        getDashboardData({ commit }) {
+            commit('dashboardLoading', true)
+            return axiosSurvey.get(`/dashboard`)
+                .then((res) => {
+                    commit('dashboardLoading', false)
+                    commit('setDashboardData', res.data)
+                    return res;
+                })
+                .catch(error => {
+                    commit('dashboardLoading', false)
+                    return error;
+                });
+        },
         getSurveys({ commit }, { url = null } = {}) {
             url = url || '/survey'
             commit('setSurveysLoading', true);
@@ -300,7 +317,13 @@ const store = createStore({
             setTimeout(() => {
                 state.notification.show = false;
             }, 3000);
-        }
+        },
+        dashboardLoading: (state, loading) => {
+            state.dashboard.loading = loading;
+        },
+        setDashboardData: (state, data) => {
+            state.dashboard.data = data;
+        },
     },
     modules: {}
 });
