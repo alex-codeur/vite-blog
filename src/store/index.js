@@ -99,6 +99,9 @@ const store = createStore({
 
             return response;
         },
+        saveSurveyAnswer({ commit }, { surveyId, answers }) {
+            return axiosSurvey.post(`/survey/${surveyId}/answer`, { answers });
+        },
         deleteSurvey({}, id) {
             return axiosSurvey.delete(`/survey/${id}`);
         },

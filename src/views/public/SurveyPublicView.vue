@@ -1,5 +1,5 @@
 <template>
-    <div class="py-5 px-8 bg-gray-100">
+    <div class="viewer py-5 px-8 bg-gray-100">
         <div v-if="loading" class="flex justify-center">Loading...</div>
         <form @submit.prevent="submitSurvey" v-else class="container mx-auto">
             <div class="grid grid-cols-6 items-center">
@@ -84,3 +84,10 @@ import QuestionViewer from '../../components/viewer/QuestionViewer.vue'
         surveyFinished.value = false;
     }
 </script>
+
+<style scoped>
+.viewer {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+}
+</style>
