@@ -26,6 +26,12 @@
                     </span>
                     Contact
                 </router-link>
+                <router-link @click="disabled" :to="{name: 'quiz'}" class="flex items-center font-semibold text-sm hover:text-blue-500 transition">
+                    <span class="mr-2">
+                        <i class="fas fa-question"></i>
+                    </span>
+                    Quiz
+                </router-link>
             </div>
 
             <div class="relative ml-auto hidden lg:block">

@@ -20,6 +20,7 @@ const routes = [
             { path: '/about', name: 'about', component: Public.About },
             { path: '/account', name: 'account', component: Public.Account },
             { path: '/contact', name: 'contact', component: Public.Contact },
+            { path: '/quiz', name: 'quiz', component: Public.Quiz },
             { path: '/post/:id', name: 'post', component: Public.PostView },
         ]
     },
