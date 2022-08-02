@@ -6,6 +6,8 @@ import * as Auth from '../views/auth'
 
 import * as Admin from '../views/admin'
 
+import SurveyPublicView from '../views/public/SurveyPublicView.vue'
+
 import store from "../store";
 
 const routes = [
@@ -18,7 +20,7 @@ const routes = [
             { path: '/about', name: 'about', component: Public.About },
             { path: '/account', name: 'account', component: Public.Account },
             { path: '/contact', name: 'contact', component: Public.Contact },
-            { path: '/post/:id', name: 'post', component: Public.PostView }
+            { path: '/post/:id', name: 'post', component: Public.PostView },
         ]
     },
     {
@@ -52,6 +54,11 @@ const routes = [
             { path: '/login', name: 'login', component: Auth.Login },
             { path: '/register', name: 'register', component: Auth.Register }
         ]
+    },
+    {
+        path: '/view/survey/:slug',
+        name: 'SurveyPublicView',
+        component: SurveyPublicView
     },
     {
         path: '/:pathMatch(.*)*', component: Public.NotFound
